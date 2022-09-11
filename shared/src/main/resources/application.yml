@@ -1,0 +1,12 @@
+rocketmq:
+  consumer:
+    group: "default-consumer-group"
+    default-tag: "*"
+    consume-thread-min: 5
+    consume-thread-max: 20
+  name-server: 192.168.39.233:9876
+  producer:
+    retry-times-when-send-failed: 3
+    send-message-timeout: 4000
+    max-message-size: 4096
+    group: "default-producer-group"
