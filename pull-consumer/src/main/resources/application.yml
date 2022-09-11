@@ -1,0 +1,9 @@
+server:
+  port: 8080
+
+rocketmq:
+  name-server: 192.168.39.233:9876
+  producer:
+    group: "default-producer-group"
+  consumer:
+    group: "default-consumer-group"
