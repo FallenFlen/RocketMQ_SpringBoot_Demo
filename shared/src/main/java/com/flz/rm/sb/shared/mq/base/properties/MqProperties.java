@@ -21,4 +21,5 @@ public class MqProperties {
     private String defaultTag;
     private Integer consumeThreadMin;
     private Integer consumeThreadMax;
+    private Integer maxConsumeBatchSize;
 }

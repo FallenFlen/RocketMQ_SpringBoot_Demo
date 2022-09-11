@@ -4,6 +4,7 @@ rocketmq:
     default-tag: "*"
     consume-thread-min: 5
     consume-thread-max: 20
+    max-consume-batch-size: 1
   name-server: 192.168.39.233:9876
   producer:
     retry-times-when-send-failed: 3
