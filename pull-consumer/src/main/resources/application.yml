@@ -11,15 +11,5 @@ rocketmq:
     pull-batch-size: 20
   topics:
     common-topic: "common-topic"
-
-spring:
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.39.233:13306/rocket_mq_springboot?serverTimezone=Asia/Shanghai
-    username: root
-    password: test123
-  jpa:
-    database-platform: org.hibernate.dialect.MySQL57Dialect
-    show-sql: true
   jackson:
     default-property-inclusion: non_null
