@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class OrderService {
     private final OrderRepository orderRepository;
+    private final MqService mqService;
     private OrderConvertor convertor = OrderConvertor.INSTANCE;
 
     public OrderResponseDTO create(CreateOrderRequestDTO dto) {
@@ -20,6 +21,8 @@ public class OrderService {
                 .description(dto.getDescription())
                 .status(OrderStatus.PENDING)
                 .build();
-        return convertor.toDTO(orderRepository.save(order));
+        Order savedOrder = orderRepository.save(order);
+        mqService.sendOrderCancelDelayMessage(savedOrder.getId());
+        return convertor.toDTO(savedOrder);
     }
 }
