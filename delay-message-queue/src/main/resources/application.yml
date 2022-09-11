@@ -1,16 +1,15 @@
 server:
-  port: 8082
+  port: 8081
 
 rocketmq:
   name-server: 192.168.39.233:9876
   producer:
-    group: "default-producer-dq-group"
+    group: "default-producer-delay-group"
     retry-times-when-send-failed: 3
   consumer:
-    group: "default-consumer-dq-group"
-    pull-batch-size: 20
+    group: "default-consumer-delay-group"
   topics:
-    common-topic: "dq-topic"
+    common-topic: "delay-topic"
 
 spring:
   datasource:
