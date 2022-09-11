@@ -6,6 +6,7 @@
     <modules>
         <module>pull-consumer</module>
         <module>shared</module>
+        <module>dead-message-queue</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
