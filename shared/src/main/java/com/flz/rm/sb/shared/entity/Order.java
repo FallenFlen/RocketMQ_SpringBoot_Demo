@@ -2,6 +2,7 @@ package com.flz.rm.sb.shared.entity;
 
 import com.flz.rm.sb.shared.enums.OrderStatus;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
@@ -11,6 +12,7 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Entity
 @Table(name = "tb_order")
 public class Order {
