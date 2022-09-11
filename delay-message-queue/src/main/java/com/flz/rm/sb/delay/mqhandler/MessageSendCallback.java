@@ -1,4 +1,4 @@
-package com.flz.rm.sb.dead.mqhandler;
+package com.flz.rm.sb.delay.mqhandler;
 
 import com.flz.rm.sb.shared.utils.JsonUtils;
 import lombok.extern.slf4j.Slf4j;

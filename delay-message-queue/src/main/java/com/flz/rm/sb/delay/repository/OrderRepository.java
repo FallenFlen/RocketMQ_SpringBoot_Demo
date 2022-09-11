@@ -1,4 +1,4 @@
-package com.flz.rm.sb.dead.repository;
+package com.flz.rm.sb.delay.repository;
 
 import com.flz.rm.sb.shared.entity.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
