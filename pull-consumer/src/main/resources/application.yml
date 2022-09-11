@@ -5,8 +5,12 @@ rocketmq:
   name-server: 192.168.39.233:9876
   producer:
     group: "default-producer-group"
+    retry-times-when-send-failed: 3
   consumer:
     group: "default-consumer-group"
+    pull-batch-size: 20
+  topics:
+    common-topic: "common-topic"
 
 spring:
   datasource:
