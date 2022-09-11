@@ -12,12 +12,14 @@ public class GlobalExceptionHandler {
     @ExceptionHandler
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public Result handleBusinessException(BusinessException e) {
+        e.printStackTrace();
         return Result.of(e.getMessage());
     }
 
     @ExceptionHandler
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public Result handleException(Exception e) {
+        e.printStackTrace();
         return Result.of(e.getMessage());
     }
 }

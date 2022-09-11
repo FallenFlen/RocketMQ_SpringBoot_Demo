@@ -18,6 +18,6 @@ public class ConsumerController {
     @GetMapping("/pull")
     public Result consume() {
         List<String> messages = consumerService.pull();
-        return Result.of("success", messages);
+        return Result.of(messages);
     }
 }
