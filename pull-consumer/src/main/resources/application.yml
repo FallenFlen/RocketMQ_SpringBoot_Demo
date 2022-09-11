@@ -7,3 +7,10 @@ rocketmq:
     group: "default-producer-group"
   consumer:
     group: "default-consumer-group"
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.39.233:13306/rocket_mq_springboot?serverTimezone=Asia/Shanghai
+    username: root
+    password: flms04
