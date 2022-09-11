@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 public class ConsumerService {
 
     @Qualifier("pullConsumerWithSubscribe")
-    private final DefaultLitePullConsumer pullConsumer;
+    private final DefaultLitePullConsumer pullConsumerWithSubscribe;
     @Qualifier("pullConsumerWithAssign")
     private final DefaultLitePullConsumer pullConsumerWithAssign;
     @Value("${rocketmq.topics.common-topic}")
@@ -41,16 +41,18 @@ public class ConsumerService {
         pullConsumerWithAssign.assign(currentConsumingMqLIst);
         // seek，将获取mq的点位跳到下一班，下次pull的时候拉取下一半mq
         pullConsumerWithAssign.seek(currentConsumingMqLIst.get(0), mqList.size() / 2);
-
         return pull(pullConsumerWithAssign);
     }
 
     public List<String> pullWithSubscribe() {
-        return pull(pullConsumer);
+        return pull(pullConsumerWithSubscribe);
     }
 
     private List<String> pull(DefaultLitePullConsumer consumer) {
         List<MessageExt> messageExtList = consumer.poll();
+        if (!consumer.isAutoCommit()) {
+            consumer.commitSync();
+        }
         log.info("pull messages : {}", JsonUtils.silentMarshal(messageExtList));
         return messageExtList.stream()
                 .map(MessageExt::getBody)
