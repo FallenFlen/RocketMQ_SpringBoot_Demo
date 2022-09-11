@@ -14,9 +14,18 @@ public class MqConfig {
     private String nameServer;
     @Value("${rocketmq.consumer.pull-batch-size}")
     private int pullBatchSize;
-
     @Value("${rocketmq.consumer.group}")
     private String defaultConsumerGroupName;
+
+    @Bean
+    public DefaultLitePullConsumer pullConsumerWithAssign() throws MQClientException {
+        DefaultLitePullConsumer defaultLitePullConsumer = new DefaultLitePullConsumer(defaultConsumerGroupName);
+        defaultLitePullConsumer.setNamesrvAddr(nameServer);
+        defaultLitePullConsumer.setPullBatchSize(pullBatchSize);
+        defaultLitePullConsumer.setAutoCommit(false);
+        defaultLitePullConsumer.start();
+        return defaultLitePullConsumer;
+    }
 
     @Bean
     public DefaultLitePullConsumer pullConsumerWithSubscribe() throws MQClientException {
