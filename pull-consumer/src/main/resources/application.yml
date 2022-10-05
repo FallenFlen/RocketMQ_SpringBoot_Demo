@@ -11,5 +11,6 @@ rocketmq:
     pull-batch-size: 20
   topics:
     common-topic: "common-topic"
+spring:
   jackson:
     default-property-inclusion: non_null

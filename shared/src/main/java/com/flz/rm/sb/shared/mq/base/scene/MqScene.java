@@ -6,7 +6,8 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public enum MqScene {
-    ORDER_CANCEL_SCENE("order-scene", "order-cancel-scene-tag");
+    ORDER_CANCEL_SCENE("order-scene", "order-cancel-scene-tag"),
+    TEST_SCENE("test-scene", "test-scene-tag");
 
     private String topic;
     private String tag;

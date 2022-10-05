@@ -8,6 +8,7 @@
         <module>shared</module>
         <module>dead-message-queue</module>
         <module>delay-message-queue</module>
+        <module>repeated-consume</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
