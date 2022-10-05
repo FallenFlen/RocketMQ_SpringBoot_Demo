@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,11 +17,20 @@ public class MqProperties {
     private String consumerGroup;
     private String nameServer;
     private String producerGroup;
-    private Integer retryTimesWhenSendFailed;
     private Integer sendMessageTimeout;
     private Integer maxMessageSize;
-    private String defaultTag;
     private Integer consumeThreadMin;
     private Integer consumeThreadMax;
     private Integer maxConsumeBatchSize;
+    private Integer maxResendTimes;
+    private List<Consumer> consumers;
+
+    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class Consumer {
+        private String tag;
+        private String topic;
+        private Integer maxReconsumeTimes;
+    }
 }
