@@ -14,7 +14,6 @@ spring:
       ddl-auto: update
   jackson:
     default-property-inclusion: non_null
-
 rocketmq:
   name-server: 192.168.39.233:9876
   consumer:
@@ -22,10 +21,6 @@ rocketmq:
     consume-thread-min: 5
     consume-thread-max: 20
     max-consume-batch-size: 1
-    instances:
-      - topic: "order-scene"
-        tag: "order-cancel-scene-tag"
-        max-reconsume-times: 3
   producer:
     retry-times-when-send-failed: 3
     send-message-timeout: 4000
