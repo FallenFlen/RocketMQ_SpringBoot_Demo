@@ -1,6 +1,6 @@
 package com.flz.rm.sb.delay.service;
 
-import com.flz.rm.sb.delay.mqhandler.MessageSendCallback;
+import com.flz.rm.sb.shared.mq.handler.MessageSendCallback;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.common.message.Message;
