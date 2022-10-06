@@ -5,4 +5,9 @@ public interface MqScene {
         String topic = "test-topic";
         String tag = "test-tag";
     }
+
+    interface TransactionRecordScene {
+        String topic = "tr-topic";
+        String tag = "tr-tag";
+    }
 }

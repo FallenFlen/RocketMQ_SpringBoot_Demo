@@ -1,13 +1,12 @@
-package com.flz.rm.sb.shared.entity;
+package com.flz.rm.repeatedconsume.entity;
 
-import com.flz.rm.sb.shared.entity.base.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -15,9 +14,13 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Entity
 @Table(name = "tb_transaction_record")
-public class TransactionRecord extends BaseEntity {
+@Entity
+public class TransactionRecord {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "system-uuid")
+    @GenericGenerator(name = "system-uuid", strategy = "uuid")
+    private String id;
     private BigDecimal amount;
     private LocalDateTime recordTime;
     private String deliveryLineId;
