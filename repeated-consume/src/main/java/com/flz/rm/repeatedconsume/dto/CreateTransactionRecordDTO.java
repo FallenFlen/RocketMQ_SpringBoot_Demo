@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
@@ -19,7 +18,6 @@ public class CreateTransactionRecordDTO {
         return TransactionRecordMessageDTO.builder()
                 .topic(MqScene.TestScene.topic)
                 .tag(MqScene.TestScene.tag)
-                .recordTime(LocalDateTime.now())
                 .amount(this.amount)
                 .deliveryLineId(this.deliveryLineId)
                 .build();
