@@ -6,10 +6,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class TransactionRecordService {
+public class TestService {
     private final MqService mqService;
 
-    public void create(CreateTransactionRecordDTO dto) {
+    public void createTransactionRecord(CreateTransactionRecordDTO dto) {
         mqService.createTransactionRecord(dto);
     }
 }
