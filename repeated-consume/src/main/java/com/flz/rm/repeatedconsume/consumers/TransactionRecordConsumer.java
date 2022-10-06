@@ -22,9 +22,8 @@ public class TransactionRecordConsumer implements RocketMQListener<TransactionRe
     private final TransactionRecordRepository transactionRecordRepository;
 
     @Override
-    public synchronized void onMessage(TransactionRecordMessageDTO message) {
+    public void onMessage(TransactionRecordMessageDTO message) {
         log.info("received message:{}", JsonUtils.silentMarshal(message));
-        System.out.println(message.getDeliveryLineId());
         if (transactionRecordRepository.existsByDeliveryLineId(message.getDeliveryLineId())) {
             throw new RuntimeException("message consume repeatedly with delivery line id:".concat(message.getDeliveryLineId()));
         }
